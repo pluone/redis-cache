@@ -17,7 +17,7 @@ import java.util.Set;
 
 @Slf4j
 @Component
-public class CustomBeanDefinition implements CommandLineRunner {
+public class CacheExpireProcessor implements CommandLineRunner {
     Map<String, Long> expireMap = new HashMap<>();
 
     @Autowired

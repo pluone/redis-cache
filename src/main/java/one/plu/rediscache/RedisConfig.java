@@ -27,12 +27,15 @@ public class RedisConfig {
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         redisTemplate.setEnableDefaultSerializer(false);
         redisTemplate.setKeySerializer(stringRedisSerializer());
-        redisTemplate.setValueSerializer(genericJackson2JsonRedisJsonSerializer());
+        redisTemplate.setValueSerializer(gsonRedisSerializer());
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
 
-
+    @Bean
+    public GsonRedisSerializer gsonRedisSerializer() {
+        return new GsonRedisSerializer();
+    }
 
     @Bean
     public GenericJackson2JsonRedisSerializer genericJackson2JsonRedisJsonSerializer() {
